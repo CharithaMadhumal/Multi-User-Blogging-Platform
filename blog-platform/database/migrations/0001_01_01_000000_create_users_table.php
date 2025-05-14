@@ -29,14 +29,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('categories',function(Blueprint $table){
-            $table->id();
-            $table->string('name');
-            $table->string('slug')->unique();
-            $table->text('description')->nullable();
-            
-            $table->timestamps();
-        });
+       
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
