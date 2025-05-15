@@ -88,7 +88,7 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post)
     {
-        // Check if user is allowed to edit this post
+        
         if (auth()->user()->cannot('update', $post)) {
             abort(403);
         }
@@ -116,7 +116,7 @@ class PostController extends Controller
             $post->published_at = now();
         }
 
-        // Handle featured image
+        
         if ($request->hasFile('featured_image')) {
 
             if ($post->featured_image) {
