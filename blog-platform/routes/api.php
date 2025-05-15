@@ -3,6 +3,7 @@
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SocialController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -46,3 +47,6 @@ Route::post('/add',[
 Route::delete('/tags/{id}',[
     TagController::class,'delete'
 ]);
+
+Route::get('/auth/redirect/{provider}', [SocialController::class, 'redirect']);
+Route::get('/auth/callback/{provider}', [SocialController::class, 'callback']);
